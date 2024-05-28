@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-velocity-hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-velocity-hello
+  template:
+    metadata:
+      labels:
+        app: nodejs-velocity-hello
+    spec:
+      containers:
+      - name: nodejs-velocity-hello
+        image: arielvelocity/velocity-hello-js:latest
+        ports:
+        - containerPort: 3000
